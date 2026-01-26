@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -42,7 +43,7 @@ export const Navbar = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -52,6 +53,7 @@ export const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <ThemeToggle />
             <motion.a
               href="/AMAR_CV.pdf"
               target="_blank"
@@ -93,6 +95,10 @@ export const Navbar = () => {
                   {link.name}
                 </a>
               ))}
+              <div className="flex items-center gap-4 py-2">
+                <span className="text-sm text-muted-foreground">Theme:</span>
+                <ThemeToggle />
+              </div>
               <a
                 href="/AMAR_CV.pdf"
                 target="_blank"
